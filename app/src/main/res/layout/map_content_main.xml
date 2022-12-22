@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MapActivity"
+    tools:showIn="@layout/activity_map">
+    <LinearLayout
+        android:id="@+id/llTopBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:theme="@style/app_bg"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgBack"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            app:tint="@color/red"
+            app:srcCompat="@drawable/ic_arrow_left_black_48dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Search Places"
+            android:textAllCaps="false"
+            android:textColor="?android:textColor"
+            android:textSize="@dimen/_15ssp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/llUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_2sdp"
+        android:background="@drawable/ic_top_appbar"
+        android:layout_below="@+id/llTopBar"
+        android:gravity="center|start"
+        android:translationZ="1sp"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:text="Do you want to save this selected location?"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp"
+            android:visibility="visible" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSave"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_gravity="end"
+            android:text="Save"/>
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/map_fragment"
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/llTopBar" />
+
+   <!-- <com.skyfishjy.library.RippleBackground
+        android:id="@+id/ripple_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:rb_color="#2355d2"
+        app:rb_duration="2000"
+        app:rb_radius="14dp"
+        app:rb_rippleAmount="4"
+        app:rb_scale="6">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ic_pin"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_pin"
+            android:translationY="-18dp"
+            android:visibility="invisible" />
+    </com.skyfishjy.library.RippleBackground>-->
+
+    <com.devstree.project.utils.MaterialSearchBar
+        android:id="@+id/searchBar"
+        style="@style/MaterialSearchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="3dp"
+        android:outlineProvider="bounds"
+        app:mt_hint="@string/search_place"
+        app:mt_maxSuggestionsCount="8"
+        app:mt_navIconEnabled="false"
+        app:mt_placeholder="@string/search_place"
+        app:mt_roundedSearchBarEnabled="true"
+        android:clipChildren="true"
+        app:mt_speechMode="false" />
+
+
+
+
+</RelativeLayout>
